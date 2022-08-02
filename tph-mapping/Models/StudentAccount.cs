@@ -3,6 +3,6 @@
     public class StudentAccount:UserAccount
     {
         public int Grade { get; set; }
-        public int ClassRollNo { get; set; }
+        public int ClassRoll { get; set; }
     }
 }

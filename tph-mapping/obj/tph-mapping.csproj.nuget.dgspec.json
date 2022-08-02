@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\My Projects\\.asp.net-core-tph-mapping\\tph-mapping\\tph-mapping.csproj": {}
+    "D:\\My Projects\\Github Projects\\tph-mapping-web-api-asp-net-core\\tph-mapping\\tph-mapping.csproj": {}
   },
   "projects": {
-    "D:\\My Projects\\.asp.net-core-tph-mapping\\tph-mapping\\tph-mapping.csproj": {
+    "D:\\My Projects\\Github Projects\\tph-mapping-web-api-asp-net-core\\tph-mapping\\tph-mapping.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\My Projects\\.asp.net-core-tph-mapping\\tph-mapping\\tph-mapping.csproj",
+        "projectUniqueName": "D:\\My Projects\\Github Projects\\tph-mapping-web-api-asp-net-core\\tph-mapping\\tph-mapping.csproj",
         "projectName": "tph-mapping",
-        "projectPath": "D:\\My Projects\\.asp.net-core-tph-mapping\\tph-mapping\\tph-mapping.csproj",
+        "projectPath": "D:\\My Projects\\Github Projects\\tph-mapping-web-api-asp-net-core\\tph-mapping\\tph-mapping.csproj",
         "packagesPath": "C:\\Users\\Ador\\.nuget\\packages\\",
-        "outputPath": "D:\\My Projects\\.asp.net-core-tph-mapping\\tph-mapping\\obj\\",
+        "outputPath": "D:\\My Projects\\Github Projects\\tph-mapping-web-api-asp-net-core\\tph-mapping\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ador\\AppData\\Roaming\\NuGet\\NuGet.Config",

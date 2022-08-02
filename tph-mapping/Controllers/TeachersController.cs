@@ -19,7 +19,18 @@ namespace tph_mapping.Controllers
         [HttpPost]
         public IActionResult AddTeacher([FromBody] TeacherAccount teacherAccount)
         {
-            return Ok("Adding Teacher");
+            teacherAccount.AccountId= Guid.NewGuid();
+            try
+            {
+                _applicationDbContext.TeacherAccounts.Add(teacherAccount);
+                _applicationDbContext.SaveChanges();
+                return Ok(teacherAccount);
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex.Message);
+            }
+
         }
     }
 

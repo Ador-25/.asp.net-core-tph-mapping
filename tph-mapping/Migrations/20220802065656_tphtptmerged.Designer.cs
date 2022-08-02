@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using tph_mapping.Contexts;
 
@@ -11,9 +12,10 @@ using tph_mapping.Contexts;
 namespace tph_mapping.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220802065656_tphtptmerged")]
+    partial class tphtptmerged
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,7 +30,7 @@ namespace tph_mapping.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AccountRef")
+                    b.Property<Guid>("AccountId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AddressDetails")
@@ -41,10 +43,12 @@ namespace tph_mapping.Migrations
                     b.Property<double>("Lon")
                         .HasColumnType("float");
 
+                    b.Property<Guid>("UserAccountAccountId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("AddressId");
 
-                    b.HasIndex("AccountRef")
-                        .IsUnique();
+                    b.HasIndex("UserAccountAccountId");
 
                     b.ToTable("Addresses");
                 });
@@ -104,18 +108,12 @@ namespace tph_mapping.Migrations
             modelBuilder.Entity("tph_mapping.Models.Address", b =>
                 {
                     b.HasOne("tph_mapping.Models.UserAccount", "UserAccount")
-                        .WithOne("UserAddress")
-                        .HasForeignKey("tph_mapping.Models.Address", "AccountRef")
+                        .WithMany()
+                        .HasForeignKey("UserAccountAccountId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("UserAccount");
-                });
-
-            modelBuilder.Entity("tph_mapping.Models.UserAccount", b =>
-                {
-                    b.Navigation("UserAddress")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

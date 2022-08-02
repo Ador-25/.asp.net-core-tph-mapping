@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using tph_mapping.Contexts;
 
@@ -11,9 +12,10 @@ using tph_mapping.Contexts;
 namespace tph_mapping.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220802064757_Tph")]
+    partial class Tph
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,9 +30,6 @@ namespace tph_mapping.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AccountRef")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("AddressDetails")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -43,16 +42,16 @@ namespace tph_mapping.Migrations
 
                     b.HasKey("AddressId");
 
-                    b.HasIndex("AccountRef")
-                        .IsUnique();
-
-                    b.ToTable("Addresses");
+                    b.ToTable("Address");
                 });
 
             modelBuilder.Entity("tph_mapping.Models.UserAccount", b =>
                 {
                     b.Property<Guid>("AccountId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AddressId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Discriminator")
@@ -72,6 +71,8 @@ namespace tph_mapping.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AccountId");
+
+                    b.HasIndex("AddressId");
 
                     b.ToTable("UserAccounts");
 
@@ -101,21 +102,15 @@ namespace tph_mapping.Migrations
                     b.HasDiscriminator().HasValue("TeacherAccount");
                 });
 
-            modelBuilder.Entity("tph_mapping.Models.Address", b =>
+            modelBuilder.Entity("tph_mapping.Models.UserAccount", b =>
                 {
-                    b.HasOne("tph_mapping.Models.UserAccount", "UserAccount")
-                        .WithOne("UserAddress")
-                        .HasForeignKey("tph_mapping.Models.Address", "AccountRef")
+                    b.HasOne("tph_mapping.Models.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("UserAccount");
-                });
-
-            modelBuilder.Entity("tph_mapping.Models.UserAccount", b =>
-                {
-                    b.Navigation("UserAddress")
-                        .IsRequired();
+                    b.Navigation("Address");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "blnGMfWPInkuJx5auqzUvdkTSNW7AcImjGpthObtsgBmfKFMnZV1Iax6K1+znhDHLOzvbuoL9hHOXssT5V6R6g==",
+  "dgSpecHash": "p6VXBIGBnhle/XXN/vAw1QYeimS0OlO1ax1OFSBbU3lmrJ8MonZrdWm3i/4AS9X2YQbPNqf31eBDPhIyMG+Slw==",
   "success": true,
-  "projectFilePath": "D:\\My Projects\\.asp.net-core-tph-mapping\\tph-mapping\\tph-mapping.csproj",
+  "projectFilePath": "D:\\My Projects\\Github Projects\\tph-mapping-web-api-asp-net-core\\tph-mapping\\tph-mapping.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ador\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Ador\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
